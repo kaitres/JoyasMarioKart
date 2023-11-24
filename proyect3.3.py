@@ -37,18 +37,18 @@ def mostrar(tablero):
 		print
 		i+=1
 def estado_fig(fig):
-	fig[0]=pygame.image.load("peach.png")
-	fig[1]=pygame.image.load("mario verde.png")
-	fig[2]=pygame.image.load("mario.png")
-	fig[3]=pygame.image.load("donk.png")
-	fig[4]=pygame.image.load("bowser.png")
-	fig[5]=pygame.image.load("bowserm.png")
-	fig[6]=pygame.image.load("peach1.png")
-	fig[7]=pygame.image.load("mario verde1.png")
-	fig[8]=pygame.image.load("mario1.png")
-	fig[9]=pygame.image.load("donk1.png")
-	fig[10]=pygame.image.load("bowser1.png")
-	fig[11]=pygame.image.load("bowserm1.png")
+	fig[0]=pygame.image.load("/asset/peach.png")
+	fig[1]=pygame.image.load("/asset/mario verde.png")
+	fig[2]=pygame.image.load("/asset/mario.png")
+	fig[3]=pygame.image.load("/asset/donk.png")
+	fig[4]=pygame.image.load("/asset/bowser.png")
+	fig[5]=pygame.image.load("/asset/bowserm.png")
+	fig[6]=pygame.image.load("/asset/peach1.png")
+	fig[7]=pygame.image.load("/asset/mario verde1.png")
+	fig[8]=pygame.image.load("/asset/mario1.png")
+	fig[9]=pygame.image.load("/asset/donk1.png")
+	fig[10]=pygame.image.load("/asset/bowser1.png")
+	fig[11]=pygame.image.load("/asset/bowserm1.png")
 def validar(i,j):
 	if i>=0 and j>=0 and i<largo and j<ancho:
 		return True
@@ -193,9 +193,9 @@ def subir_colocar(tablero,a):
 	return False
 def juego(a,fondo,tiempo):
 	estado_fig(fig)	
-	gameover=pygame.image.load('gameover.png')
-	fuente = pygame.font.Font("font8.ttf", 15)
-	fuentenumero = pygame.font.Font("font1.ttf", 20)
+	gameover=pygame.image.load('/asset/gameover.png')
+	fuente = pygame.font.Font("/asset/font8.ttf", 15)
+	fuentenumero = pygame.font.Font("/asset/font1.ttf", 20)
 	screen.blit(fondo,(0,0))	
 	tablero =genera_tablero()
 	tablero =patron_inicial(tablero,a)
@@ -205,8 +205,8 @@ def juego(a,fondo,tiempo):
 	infinito=True
 	while infinito:
 		screen.blit(fondo,(0,0))
-		screen.blit(pygame.image.load("marco1.png"),(15,140))
-		screen.blit(pygame.image.load("marco1.png"),(15,250))
+		screen.blit(pygame.image.load("/asset/marco1.png"),(15,140))
+		screen.blit(pygame.image.load("/asset/marco1.png"),(15,250))
 		
 		screen.blit(fuentenumero.render( str(puntaje) ,0, (0,0,0)),(45,155))
 		screen.blit(fuentenumero.render( "Puntaje" ,0, (0,0,0)),(15,110))
@@ -224,7 +224,7 @@ def juego(a,fondo,tiempo):
 				infinito=False
 			linea+=1
 			if linea%5==0:
-				screen.blit(pygame.image.load('levelup.png'),(15,300))
+				screen.blit(pygame.image.load('/asset/levelup.png'),(15,300))
 				screen.blit(fuentenumero.render( str(linea) ,0, (0,0,0)),(45,265))
 				pygame.display.update()
 				time.sleep(2)
@@ -246,15 +246,15 @@ def menu_juego():
 	global tiempo
 	global fig
 	fig=[0,0,0,0,0,0,0,0,0,0,0,0]
-	fondo=pygame.image.load('fondiu+logo2.png')
+	fondo=pygame.image.load('/asset/fondiu+logo2.png')
 	screen.blit(fondo,(0,0))
-	fuente = pygame.font.Font("font8.ttf", 30)
-	nivel1=pygame.image.load("buton00.png")
-	nivel2=pygame.image.load("buton02.png")
-	nivel3=pygame.image.load("buton04.png")
-	nivel12=pygame.image.load("buton01.png")
-	nivel13=pygame.image.load("buton03.png")
-	nivel11=pygame.image.load("buton09.png")
+	fuente = pygame.font.Font("/asset/font8.ttf", 30)
+	nivel1=pygame.image.load("/asset/buton00.png")
+	nivel2=pygame.image.load("/asset/buton02.png")
+	nivel3=pygame.image.load("/asset/buton04.png")
+	nivel12=pygame.image.load("/asset/buton01.png")
+	nivel13=pygame.image.load("/asset/buton03.png")
+	nivel11=pygame.image.load("/asset/buton09.png")
 
 	while True:
 		screen.blit(fondo,(0,0))
@@ -270,7 +270,7 @@ def menu_juego():
 					screen.fill((0,0,0))
 					largo=10
 					ancho=8
-					fondo=pygame.image.load('fondiu+logo1.png')
+					fondo=pygame.image.load('/asset/fondiu+logo1.png')
 					tiempo=10
 					juego(3,fondo,tiempo)
 					pygame.display.update()
@@ -283,7 +283,7 @@ def menu_juego():
 					screen.fill((0,0,0))
 					largo=10
 					ancho=9
-					fondo=pygame.image.load('fondiu+logo3.png')
+					fondo=pygame.image.load('/asset/fondiu+logo3.png')
 					tiempo=8
 					juego(4,fondo,tiempo)
 					pygame.display.update()
@@ -297,7 +297,7 @@ def menu_juego():
 					screen.fill((0,0,0))
 					largo=10
 					ancho=10
-					fondo=pygame.image.load('fondiu+logo4.png')
+					fondo=pygame.image.load('/asset/fondiu+logo4.png')
 					tiempo=6
 					juego(5,fondo,tiempo)
 					pygame.display.update()
@@ -312,12 +312,12 @@ def menu_juego():
 if __name__ == '__main__':
 	pygame.init()
 	screen=pygame.display.set_mode((700,650))
-	fondo=pygame.image.load('fondiu+logo2.png')
+	fondo=pygame.image.load('/asset/fondiu+logo2.png')
 	screen.blit(fondo,(0,0))
-	inicio=pygame.image.load("buton1.png")
-	iniciob=pygame.image.load("buton0.png")
-	salir=pygame.image.load("buton2.png")
-	salirb=pygame.image.load("buton3.png")
+	inicio=pygame.image.load("/asset/buton1.png")
+	iniciob=pygame.image.load("/asset/buton0.png")
+	salir=pygame.image.load("/asset/buton2.png")
+	salirb=pygame.image.load("/asset/buton3.png")
 
 	while True:
 		screen.blit(fondo,(0,0))
