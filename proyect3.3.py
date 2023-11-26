@@ -17,6 +17,7 @@ def genera_tablero():
 		M=M+[L]
 		i+=1
 	return M 
+
 def patron_inicial(tablero,a):
 	j=0
 	b=[5,4,3,2,2,3,4,5,4,3]
@@ -27,6 +28,7 @@ def patron_inicial(tablero,a):
 			x-=1
 		j+=1
 	return tablero
+
 def mostrar(tablero):
 	i=0
 	while i<largo:
@@ -36,6 +38,7 @@ def mostrar(tablero):
 			j+=1
 		print
 		i+=1
+
 def estado_fig(fig):
 	fig[0]=pygame.image.load("/asset/peach.png")
 	fig[1]=pygame.image.load("/asset/mario verde.png")
@@ -49,11 +52,13 @@ def estado_fig(fig):
 	fig[9]=pygame.image.load("/asset/donk1.png")
 	fig[10]=pygame.image.load("/asset/bowser1.png")
 	fig[11]=pygame.image.load("/asset/bowserm1.png")
+
 def validar(i,j):
 	if i>=0 and j>=0 and i<largo and j<ancho:
 		return True
 	else:
 		return False
+	
 def posible_jugada(tablero,i,j,y,x,num,cont):
 	a=[1,0,-1,0]
 	b=[0,1,0,-1]
@@ -70,6 +75,7 @@ def posible_jugada(tablero,i,j,y,x,num,cont):
 			cont=posible_jugada(tablero,i+a[z],j+b[z],y+(a[z])*50,x+(b[z])*50,num,cont)
 		z+=1
 	return cont
+
 def mostrar_figuras(tablero):
 	rect=[(60,68,64),(30,34,32)]
 	i=0
@@ -91,6 +97,7 @@ def mostrar_figuras(tablero):
 			x+=50
 		y+=50
 		i+=1
+
 def eliminar_figuras(tablero,i,j,y,x,num):
 	tablero[i][j]=-9
 	a=[1,0,-1,0]
@@ -106,6 +113,7 @@ def eliminar_figuras(tablero,i,j,y,x,num):
 			eliminar_figuras(tablero,i+a[z],j+b[z],y+(a[z])*50,x+(b[z])*50,num)
 		z+=1
 	return
+
 def mostrar_resplandor(tablero,a):
 	i=0
 	y=100
@@ -137,6 +145,7 @@ def mostrar_resplandor(tablero,a):
 		y+=50
 		i+=1
 	return 0
+
 def bajar_figuras(tablero,a):
 	cont=0
 	while cont <largo:
@@ -151,6 +160,7 @@ def bajar_figuras(tablero,a):
 				j+=1
 			i+=1
 		cont+=1
+
 def centrar_figuras(tablero):
 	cont=0
 	while cont <largo:
@@ -160,6 +170,7 @@ def centrar_figuras(tablero):
 				mover_izq(tablero,i)
 			i+=1
 		cont+=1
+
 def mover_izq(tablero,y):
 	while y<ancho:
 		i=largo-1
@@ -170,6 +181,7 @@ def mover_izq(tablero,y):
 					tablero[i][y+1]=-9
 			i-=1
 		y+=1
+
 def subir_colocar(tablero,a):
 	i=0
 	while i<ancho:
@@ -191,6 +203,7 @@ def subir_colocar(tablero,a):
 		i+=1
 
 	return False
+
 def juego(a,fondo,tiempo):
 	estado_fig(fig)	
 	gameover=pygame.image.load('/asset/gameover.png')
@@ -240,6 +253,7 @@ def juego(a,fondo,tiempo):
 		for event in pygame.event.get():
 				if event.type == pygame.QUIT:
 					pygame.quit(); sys.exit(); 
+
 def menu_juego():
 	global ancho
 	global largo
@@ -309,6 +323,7 @@ def menu_juego():
 		for event in pygame.event.get():
 				if event.type == pygame.QUIT:
 					pygame.quit(); sys.exit(); 
+
 if __name__ == '__main__':
 	pygame.init()
 	screen=pygame.display.set_mode((700,650))
